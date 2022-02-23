@@ -1,5 +1,8 @@
 /* required styles */
 
+#map { height: 800px; 
+	width: 600px}
+
 .leaflet-pane,
 .leaflet-tile,
 .leaflet-marker-icon,
@@ -11,7 +14,7 @@
 .leaflet-image-layer,
 .leaflet-layer {
 	position: absolute;
-	left: 0;
+	left: 20;
 	top: 0;
 	}
 .leaflet-container {

@@ -1,20 +1,18 @@
-// Add all scripts to the JS folder
+/* Map of GeoJSON data from MegaCities.geojson */
 
-//declares map var in global scope
+//declare map variable
 var map;
-//function that creates the Leaflet map
+//function that creates the map
 function createMap(){
-    //creates the map
+    //defines center and zoom
     map = L.map('map', {
-        center: [36.5, -120],
-        zoom: 5.85
+        center: [20, 0],
+        zoom: 2
     });
 
-    //adds my own Monarch base tilelayer 
-    L.tileLayer('https://api.mapbox.com/styles/v1/kkoehler4/ckzyymsrb000y15joz612q9br/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoia2tvZWhsZXI0IiwiYSI6ImNrdjZza3psZjlkMHcyb2s2ZzVxbzV6YjQifQ.OfaWlujeGgvfX7xd7eg9xA', {
-        tileSize: 512,
-        zoomOffset: -1,
-        attribution: '&copy <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> &copy <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    //adds OSM base tilelayer
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
     }).addTo(map);
 
     //calls getData function
@@ -34,26 +32,26 @@ function onEachFeature(feature, layer) {
     };
 };
 
-//function that retrieves data from my monarchData.geojson file and places it on the map
+//function that retrieves data from the MegaCities.json file and places it on the map
 function getData(){
     //retrieves the data
-    fetch("data/monarchData.geojson")
+    fetch("data/MegaCities.geojson copy")
         //converts data to a usable form
         .then(function(response){
             return response.json();
         })
         .then(function(json){
-            //styles the circle markers  
+                //styles the circle markers 
             var geojsonMarkerOptions = {
-                radius: 10,
-                fillColor: "#00000",
-                color: "#DD9F76",
-                weight: 1.5,
-                opacity: 0.5,
-                fillOpacity: 1
+                radius: 8,
+                fillColor: "#ff7800",
+                color: "#000",
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 0.8
             };
 
-            //creates a Leaflet GeoJSON layer and adds it to the map
+            //add a Leaflet GeoJSON layer to the map
             L.geoJson(json, {
                 pointToLayer: function (feature, latlng){
                     return L.circleMarker(latlng, geojsonMarkerOptions);
