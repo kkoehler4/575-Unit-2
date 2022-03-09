@@ -297,7 +297,7 @@ function createLegend(attributes) {
         // create the control container with a particular class name
         var container = L.DomUtil.create("div", "legend-control-container");
   
-        container.innerHTML = '<p class="temporalLegend">Population in <span class="year">1997</span></p>';
+        container.innerHTML = '<p class="temporalLegend">Monarch population in <span class="year">1997</span></p>';
   
         //Step 1: start attribute legend svg string
         var svg = '<svg id="attribute-legend" width="100px" height="100px margin="30px">';
