@@ -74,7 +74,7 @@ function createPopupContent(properties, attribute){
 
     //add formatted attribute to panel content string
     //var year = attribute.split("_")[1];
-    popupContent += "<p><b>Population in " + attribute + ":</b> " + properties[attribute] + "</p>";
+    popupContent += "<p><b>Monarch Population in " + attribute + ":</b> " + properties[attribute] + "</p>";
 
     return popupContent;
 };
