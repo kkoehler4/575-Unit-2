@@ -10,7 +10,7 @@ function createMap(){
         zoom: 5.85,
         //restrict zoom to major cities
         maxZoom: 9,
-        minZoom: 3,
+        minZoom: 5,
         //restrcit pan to California
         maxBounds: [
             [45, -130],[30, -110]
